@@ -95,8 +95,3 @@ class ViewController: UIViewController {
 
 
 }
-
-
-
-//is Number?
-//if is, get the number and return action  with number
