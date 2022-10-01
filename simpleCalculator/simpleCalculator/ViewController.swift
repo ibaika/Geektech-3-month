@@ -19,30 +19,34 @@ class ViewController: UIViewController {
     @IBOutlet weak var resultLabel: UILabel!
     
     
-    var firstNumber: Int = 0
-    var secondNumber: Int = 0
+    var firstNumber: Double = 0
+    var secondNumber: Double = 0
     
     func isNumberGiven(_ v: String?) -> Bool{
-        v != nil && Int(v!) != nil ? true : false
+        v != nil && Double(v!) != nil ? true : false
     }
     
-    func numberOutOfString(_ n: String?) -> Int{
-        var number: Int = 0
+    func numberOutOfString(_ n: String?) -> Double{
+        var number: Double = 0
         
         if let n = n {
-            if let x = Int(n){
+            if let x = Double(n){
                 number = x
             }
         }
         return number
     }
     
+    func isWholeNumberValue(_ v: Double) -> Bool{
+        v.truncatingRemainder(dividingBy: 1) == 0
+    }
+    
     func calculateValues(_ v1: String?, _ v2: String?, action: String){
-        var summ: Int = 0
+        var summ: Double = 0
         if isNumberGiven(v1) && isNumberGiven(v2){
             
-            let firstNumber: Int = numberOutOfString(v1)
-            let secondNumber: Int = numberOutOfString(v2)
+            let firstNumber: Double = numberOutOfString(v1)
+            let secondNumber: Double = numberOutOfString(v2)
             
             switch action{
             case "+": summ = firstNumber + secondNumber
@@ -51,8 +55,16 @@ class ViewController: UIViewController {
             case "/": summ = firstNumber / secondNumber
             default: print("unexpected error caught!")
             }
+            
+            if isWholeNumberValue(summ){
+                resultLabel.text = String(Int(summ))
+            } else {
+                resultLabel.text = String(summ)
+            }
+            
+            
+            
         
-            resultLabel.text = String(summ)
         } else { resultLabel.text = "введите число!" }
     }
     
