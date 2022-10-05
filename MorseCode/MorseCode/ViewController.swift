@@ -41,7 +41,7 @@ class ViewController: UIViewController {
                         decodedText.append(" ")
                     }
                 }
-            }
+            } 
         }
         resultLabel.text = decodedText
     }
