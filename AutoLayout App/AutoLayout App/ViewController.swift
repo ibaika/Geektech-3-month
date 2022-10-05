@@ -53,12 +53,16 @@ class ViewController: UIViewController {
             if userIsNotRegisteredYet(username: inputedUsername){
                 addUser(inputedUsername, inputedPassword)
                 resultLabel.text = "Вы добавлены! ✅"
+                print("Вы добавлены! ✅")
             } else {
                 resultLabel.text = "Вы уже зарегистрированы!"
+                print("Вы уже зарегистрированы!")
             }
             
         } else {
             resultLabel.text = "Введите данные! 😠"
+            print("Введите данные! 😠")
+
         }
         
 
@@ -94,11 +98,14 @@ class ViewController: UIViewController {
                 print(inputedUsername)
                 print(userPasswordData)
                 resultLabel.text = "Вы не зарегистрированы!"
+                print("Вы не зарегитсрированы!")
             } else if !userIsNotRegisteredYet(username: inputedUsername){
                 if passwordCorrectlyGiven(inputedUsername, inputedPassword){
                     resultLabel.text = "Успешный вход! ✅"
+                    print("Успешный вход! ✅")
                 } else {
                     resultLabel.text = "Неправильный логин/пароль! "
+                    print("Неправильный логин/пароль! ")
                 }
             }
             
@@ -109,6 +116,7 @@ class ViewController: UIViewController {
             
         } else {
             resultLabel.text = "Введите данные! 😠"
+            print("Введите данные! 😠")
         }
         
         
