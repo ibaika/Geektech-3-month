@@ -104,8 +104,8 @@ class ViewController: UIViewController {
                     resultLabel.text = "Успешный вход! ✅"
                     print("Успешный вход! ✅")
                 } else {
-                    resultLabel.text = "Неправильный логин/пароль! "
-                    print("Неправильный логин/пароль! ")
+                    resultLabel.text = "Неправильный пароль! "
+                    print("Неправильный пароль! ")
                 }
             }
             
