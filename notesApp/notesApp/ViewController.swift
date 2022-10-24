@@ -84,6 +84,7 @@ extension ViewController: UITableViewDelegate{
         
         var textField = UITextField()
         
+        textField.becomeFirstResponder()
         alertController.addTextField { text in
             textField = text
         }
