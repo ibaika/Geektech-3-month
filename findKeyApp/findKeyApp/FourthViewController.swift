@@ -8,22 +8,39 @@
 import UIKit
 
 class FourthViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
+    
+    
+    @IBOutlet weak var goToSecondVCButton: UIButton!
+    
+    @IBOutlet weak var goToThirdVCButton: UIButton!
+    
+    @IBOutlet weak var gameStateLabel: UILabel!
+    
+    
+    
+    @IBAction func goToSecondViewController(_ sender: UIButton) {
+        let secondViewController = storyboard?.instantiateViewController(withIdentifier: "second_vc") as! SecondViewController
+        self.navigationController?.pushViewController(secondViewController, animated: false)
+        }
+    
+    
+    
+    @IBAction func goToThirdViewController(_ sender: UIButton) {
+        let thirdViewController = storyboard?.instantiateViewController(withIdentifier: "third_vc") as! ThirdViewController
+        self.navigationController?.pushViewController(thirdViewController, animated: false)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func playAgainButtonTapped(_ sender: UIButton) {
+        navigationController?.popToRootViewController(animated: true)
     }
-    */
-
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationItem.hidesBackButton = true
+        gameStateLabel.text = "You won! Steps left: \(stepsLeft)"
+        goToSecondVCButton.isEnabled = false
+        goToThirdVCButton.isEnabled = false
+    }
 }

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Bn0-HW-3CG">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="FXC-dV-UKy">
+            <objects>
+                <navigationController id="Bn0-HW-3CG" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Wfb-LL-Jhq">
+                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="wOu-Y7-SGT" kind="relationship" relationship="rootViewController" id="Ywf-wt-PxE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vcc-P7-8qg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="609" y="-34"/>
+        </scene>
+        <!--Заметки-->
+        <scene sceneID="osD-Il-nSN">
+            <objects>
+                <viewController id="wOu-Y7-SGT" customClass="ViewController" customModule="notesApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HAt-IF-FuF">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="CVz-UJ-lFz">
+                                <rect key="frame" x="0.0" y="106" width="390" height="684"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="custom_cell" rowHeight="60" id="DIT-ii-9UK" customClass="CustomNoteTableViewCell" customModule="notesApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="390" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DIT-ii-9UK" id="77z-51-eNJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96N-c3-3hB">
+                                                    <rect key="frame" x="64" y="7" width="310" height="46"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="310" id="6QE-m3-mQi"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YdN-AX-Hda">
+                                                    <rect key="frame" x="7" y="0.0" width="35" height="60"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="blank-check-box"/>
+                                                    <connections>
+                                                        <action selector="noteStateButtonTapped:" destination="DIT-ii-9UK" eventType="touchUpInside" id="fMz-Gx-iDR"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="96N-c3-3hB" secondAttribute="trailing" constant="16" id="7zb-Ex-Del"/>
+                                                <constraint firstAttribute="bottom" secondItem="YdN-AX-Hda" secondAttribute="bottom" id="Biw-Bg-LkG"/>
+                                                <constraint firstItem="YdN-AX-Hda" firstAttribute="leading" secondItem="77z-51-eNJ" secondAttribute="leading" constant="7" id="WLI-mH-31m"/>
+                                                <constraint firstAttribute="bottom" secondItem="96N-c3-3hB" secondAttribute="bottom" constant="7" id="Woh-15-lhe"/>
+                                                <constraint firstItem="YdN-AX-Hda" firstAttribute="top" secondItem="77z-51-eNJ" secondAttribute="top" id="cKw-Df-AaP"/>
+                                                <constraint firstItem="96N-c3-3hB" firstAttribute="top" secondItem="77z-51-eNJ" secondAttribute="top" constant="7" id="dDU-iT-6Qm"/>
+                                                <constraint firstItem="96N-c3-3hB" firstAttribute="leading" secondItem="YdN-AX-Hda" secondAttribute="trailing" constant="22" id="m1e-nE-tKG"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="noteStateButton" destination="YdN-AX-Hda" id="Ovx-NL-uOS"/>
+                                            <outlet property="noteTitleLabel" destination="96N-c3-3hB" id="aO0-Bp-1w3"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="wOu-Y7-SGT" id="Fif-xn-uMy"/>
+                                    <outlet property="delegate" destination="wOu-Y7-SGT" id="TjL-8m-nYJ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qTY-9Y-0H9"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CVz-UJ-lFz" firstAttribute="top" secondItem="qTY-9Y-0H9" secondAttribute="top" constant="15" id="41o-5T-N7x"/>
+                            <constraint firstItem="CVz-UJ-lFz" firstAttribute="leading" secondItem="qTY-9Y-0H9" secondAttribute="leading" id="B16-fP-S6w"/>
+                            <constraint firstItem="qTY-9Y-0H9" firstAttribute="trailing" secondItem="CVz-UJ-lFz" secondAttribute="trailing" id="Q5U-Vk-RRx"/>
+                            <constraint firstItem="qTY-9Y-0H9" firstAttribute="bottom" secondItem="CVz-UJ-lFz" secondAttribute="bottom" constant="20" id="xGm-wL-4cW"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Заметки" largeTitleDisplayMode="always" id="56n-f9-7b7"/>
+                    <connections>
+                        <outlet property="notesTableView" destination="CVz-UJ-lFz" id="v7P-rW-Jyp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DnW-TC-lcY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1427.6923076923076" y="-34.123222748815166"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="blank-check-box" width="16" height="16"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

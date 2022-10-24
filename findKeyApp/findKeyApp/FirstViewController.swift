@@ -8,22 +8,64 @@
 import UIKit
 
 class FirstViewController: UIViewController {
+    
+    
+    
+    @IBOutlet weak var goToSecondVCButton: UIButton!
+    
+    @IBOutlet weak var goToThirdVCButton: UIButton!
+    
+    @IBOutlet weak var tryAgainButton: UIButton!
+    
+    
+    @IBOutlet weak var gameStateLabel: UILabel!
+    
+    
+    @IBAction func goToSecondViewContoller(_ sender: UIButton) {
+        let secondViewContoller = storyboard?.instantiateViewController(withIdentifier: "second_vc") as! SecondViewController
+        self.navigationController?.pushViewController(secondViewContoller, animated: false)
+        stepsLeft -= 1
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
+    
+    @IBAction func goToThirdViewController(_ sender: UIButton) {
+        let thirdViewController = storyboard?.instantiateViewController(withIdentifier: "third_vc") as! ThirdViewController
+        self.navigationController?.pushViewController(thirdViewController, animated: false)
+        stepsLeft -= 1
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
+    
+    
+    @IBAction func tryAgainButtonTapped(_ sender: UIButton) {
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
+    
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationItem.hidesBackButton = true
+        
+    
+        
+        if !canContinuePlaying(stepsLeft: stepsLeft){
+            gameStateLabel.text = "You lost!"
+            goToThirdVCButton.isEnabled = false
+            goToSecondVCButton.isEnabled = false
+            tryAgainButton.isHidden = false
 
+        } else {
+            gameStateLabel.text = "Steps left: \(stepsLeft)"
+            goToThirdVCButton.isEnabled = true
+            goToSecondVCButton.isEnabled = true
+            tryAgainButton.isHidden = true
+
+
+        }
+        
+        
+
+    }
 }
