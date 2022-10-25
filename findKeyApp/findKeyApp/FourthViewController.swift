@@ -39,7 +39,7 @@ class FourthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
-        gameStateLabel.text = "You won! Steps left: \(stepsLeft)"
+        gameStateLabel.text = "You won!"
         goToSecondVCButton.isEnabled = false
         goToThirdVCButton.isEnabled = false
     }
